@@ -1,5 +1,5 @@
-import { backgroundColors, effects, fontColors, Reset, ColorOptions, Effect, Colors } from './model';
-function addColor(text: string, color: Colors, isBackground = false): string {
+import { backgroundColors, effects, fontColors, Reset, ColorOptions, Effect, Color } from './model';
+function addColor(text: string, color: Color, isBackground = false): string {
     if (isBackground) {
         return text + backgroundColors[color];
     }

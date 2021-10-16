@@ -26,7 +26,7 @@ export const backgroundColors: ColorOptionHolder = {
     cyan: '\x1b[46m',
     white: '\x1b[47m',
 };
-export const contrast: ColorOptionHolder = {
+export const contrast: {[key in Color]: Color} = {
     black: 'white',
     red: 'black',
     green: 'black',
@@ -43,12 +43,12 @@ export interface TextOptions {
     mono?: boolean;
 };
 export interface ColorOptions {
-    font?: Colors;
-    background?: Colors;
+    font?: Color;
+    background?: Color;
     effects?: Effect[];
 };
 
-export type Colors = keyof ColorOptionHolder;
+export type Color = keyof ColorOptionHolder;
 export type Effect = keyof Effects;
 
 interface ColorOptionHolder {
