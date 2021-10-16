@@ -1,6 +1,6 @@
 import { color } from './colors';
-import { TextOptions } from './model';
-export function markdown(text: string, options: TextOptions): string {
+import { Options } from './model';
+export function markdown(text: string, options: Options): string {
     let result = text;
     if (options) {
         if (options.bold) {

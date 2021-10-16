@@ -1,12 +1,12 @@
 export const Reset: string = '\x1b[0m';
-export const effects: Effects = {
+export const effects: {readonly [key in Effect]: string} = {
     bright: '\x1b[1m',
     dim: '\x1b[2m',
     italic: '\x1b[3m',
     underscore: '\x1b[4m',
     blink: '\x1b[5m',
 };
-export const fontColors: ColorOptionHolder = {
+export const fontColors: {readonly [key in Color]: string} = {
     black: '\x1b[30m',
     red: '\x1b[31m',
     green: '\x1b[32m',
@@ -16,7 +16,7 @@ export const fontColors: ColorOptionHolder = {
     cyan: '\x1b[36m',
     white: '\x1b[37m',
 };
-export const backgroundColors: ColorOptionHolder = {
+export const backgroundColors: {readonly [key in Color]: string} = {
     black: '\x1b[40m',
     red: '\x1b[41m',
     green: '\x1b[42m',
@@ -26,7 +26,7 @@ export const backgroundColors: ColorOptionHolder = {
     cyan: '\x1b[46m',
     white: '\x1b[47m',
 };
-export const contrast: {[key in Color]: Color} = {
+export const contrast: {readonly [key in Color]: Color} = {
     black: 'white',
     red: 'black',
     green: 'black',
@@ -36,38 +36,15 @@ export const contrast: {[key in Color]: Color} = {
     cyan: 'black',
     white: 'black',
 };
-export interface TextOptions {
+export interface Options {
     link?: string;
     bold?: boolean;
     italic?: boolean;
     mono?: boolean;
-};
-export interface ColorOptions {
     font?: Color;
     background?: Color;
     effects?: Effect[];
 };
 
-export type Color = keyof ColorOptionHolder;
-export type Effect = keyof Effects;
-
-interface ColorOptionHolder {
-    readonly black: string;
-    readonly red: string;
-    readonly green: string;
-    readonly yellow: string;
-    readonly blue: string;
-    readonly magenta: string;
-    readonly cyan: string;
-    readonly white: string;
-    [key: string]: string;
-}
-
-export interface Effects {
-    readonly bright: string;
-    readonly dim: string;
-    readonly italic: string;
-    readonly underscore: string;
-    readonly blink: string;
-    [key: string]: string;
-}
+export type Color = "black" | "red" | "green" | "yellow" | "blue" | "magenta" | "cyan" | "white";
+export type Effect = "bright" | "dim" | "italic" | "underscore" | "blink";
